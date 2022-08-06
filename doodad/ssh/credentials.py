@@ -47,6 +47,7 @@ class SSHCredentials(object):
         else:
             raise NotImplementedError()
         cmd += " 'bash -s' < %s" % script_name
+        print(f'COMMAND: {cmd}')
         return cmd
 
     def get_scp_cmd(self, source, destination, recursive=True):

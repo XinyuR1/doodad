@@ -103,6 +103,7 @@ class DockerMode(LaunchMode):
             else:
                 cmd_list.append('echo \"Running in docker\"')
         if pythonpath:
+            print(f'pythonpath: {pythonpath}')
             cmd_list.append(
                 'export PYTHONPATH=$PYTHONPATH:%s' % (':'.join(pythonpath)))
         if no_root:
@@ -127,10 +128,10 @@ class DockerMode(LaunchMode):
             extra_args += ' -d '  # detach is optional
 
         if self.gpu:
-            docker_run = 'docker run --gpus all'
+            docker_run = 'sudo docker run --gpus all'
 #             docker_run = 'nvidia-docker run'
         else:
-            docker_run = 'docker run'
+            docker_run = 'sudo docker run'
         if use_tty:
             docker_prefix = '%s %s -ti %s /bin/bash -c ' % (
                 docker_run, extra_args, self.docker_image)
@@ -190,6 +191,7 @@ class SSHDocker(DockerMode):
 
         tmp_dir_cmd = 'mkdir -p %s' % self.tmp_dir
         tmp_dir_cmd = self.credentials.get_ssh_bash_cmd(tmp_dir_cmd)
+        # Create a directory tmp/shared in the remote computer.
         utils.call_and_wait(tmp_dir_cmd, dry=dry, verbose=verbose)
 
         # SCP Code over

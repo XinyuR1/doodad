@@ -1,26 +1,15 @@
+BASE_CODE_DIR = "/home/liuronni/Documents/Github"
+
 CODE_DIRS_TO_MOUNT = [
-    ## location of SMiRL code
+    BASE_CODE_DIR + "/rlkit"
 ]
 NON_CODE_DIRS_TO_MOUNT = [
-    ## Maybe some simulation you are importing to run.
 ]
-LOCAL_LOG_DIR = '/tmp/doodad-output/'
-OUTPUT_DIR_FOR_DOODAD_TARGET = '/tmp/doodad-output/'
-DIR_AND_MOUNT_POINT_MAPPINGS = [
-    dict(
-        local_dir='/home/gberseth/.mujoco/',
-        mount_point='/root/.mujoco',
-    ),
-#     dict(
-#         local_dir='/home/gberseth/playground/CoMPS',
-#         mount_point='/root/playground/CoMPS',
-#     ),
-#     dict(
-#         local_dir='/home/gberseth/playground/doodad_vitchry',
-#         mount_point='/root/playground/doodad',
-#     ),
-]
+LOCAL_LOG_DIR = BASE_CODE_DIR + "/rlkit/data"
+OUTPUT_DIR_FOR_DOODAD_TARGET = BASE_CODE_DIR + "/rlkit/data"
 
+DIR_AND_MOUNT_POINT_MAPPINGS = [
+]
 
 """
 AWS Settings
@@ -28,11 +17,11 @@ AWS Settings
 AWS_S3_PATH = 'TODO'
 
 # The docker image is looked up on dockerhub.com.
-DOODAD_DOCKER_IMAGE = 'TODO'
+DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:latest'
 INSTANCE_TYPE = 'c4.2xlarge'
 SPOT_PRICE = 0.3
 
-GPU_DOODAD_DOCKER_IMAGE = 'TODO'
+GPU_DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:latest'
 GPU_INSTANCE_TYPE = 'g3.4xlarge'
 GPU_SPOT_PRICE = 0.5
 REGION_TO_GPU_AWS_IMAGE_ID = {
@@ -49,12 +38,20 @@ AWS_FILE_TYPES_TO_SAVE = (
 SSH Settings
 """
 SSH_HOSTS = dict(
-    default=dict(
-        username='TODO',
-        hostname='TODO.domain.edu',
+    arcade=dict(
+        username='liuronni',
+        hostname='arcade'
     ),
+    blue=dict(
+        username='ronnie',
+        hostname='blue'
+    ),
+    green=dict(
+        username='ronnie',
+        hostname='green'
+    )
 )
-SSH_DEFAULT_HOST = 'user'
+SSH_DEFAULT_HOST = 'blue'
 SSH_PRIVATE_KEY = '~/.ssh/id_rsa'
 SSH_LOG_DIR = '~/shared/res'
 SSH_TMP_DIR = '~/shared/tmp'
@@ -136,7 +133,7 @@ GCP_FILE_TYPES_TO_SAVE = (
 # Overwrite with private configurations
 
 try:
-    from launchers.config import *
+    from doodad.easy_launch.config import *
     print ("Running Something?")
 except:
     print ("Something not installed")

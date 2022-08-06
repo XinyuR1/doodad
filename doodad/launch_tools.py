@@ -62,7 +62,8 @@ def launch_python(
         else:
             target_mount = MountLocal(local_dir=target_dir, mount_point=target_mount_dir)
     mount_points = mount_points + [target_mount]
-    target_full_path = os.path.join(target_mount.mount_dir(), os.path.basename(target))
+    #target_full_path = os.path.join(target_mount.mount_dir(), os.path.basename(target))
+    target_full_path = os.path.join(target_mount.local_dir, os.path.basename(target))
 
     command = make_python_command(
         target_full_path,
