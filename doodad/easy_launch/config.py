@@ -17,7 +17,7 @@ AWS Settings
 AWS_S3_PATH = 'TODO'
 
 # The docker image is looked up on dockerhub.com.
-DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:cuda-11.3'
+DOODAD_DOCKER_IMAGE = 'rlkit:latest'
 INSTANCE_TYPE = 'c4.2xlarge'
 SPOT_PRICE = 0.3
 
