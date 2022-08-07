@@ -21,7 +21,7 @@ DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:cuda-11.3'
 INSTANCE_TYPE = 'c4.2xlarge'
 SPOT_PRICE = 0.3
 
-GPU_DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:cuda-11.3'
+GPU_DOODAD_DOCKER_IMAGE = 'rlkit:latest'
 GPU_INSTANCE_TYPE = 'g3.4xlarge'
 GPU_SPOT_PRICE = 0.5
 REGION_TO_GPU_AWS_IMAGE_ID = {

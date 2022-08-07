@@ -128,7 +128,7 @@ class DockerMode(LaunchMode):
             extra_args += ' -d '  # detach is optional
 
         if self.gpu:
-            docker_run = 'sudo docker run --gpus all'
+            docker_run = 'sudo docker run --gpus all --pid=host'
 #             docker_run = 'nvidia-docker run'
         else:
             docker_run = 'sudo docker run'
