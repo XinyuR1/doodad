@@ -1,4 +1,4 @@
-BASE_CODE_DIR = "/home/liuronni/Documents/Github"
+BASE_CODE_DIR = "/home/ronnie/Documents/Github"
 
 CODE_DIRS_TO_MOUNT = [
     BASE_CODE_DIR + "/rlkit"
