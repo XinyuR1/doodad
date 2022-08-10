@@ -1,8 +1,11 @@
 import doodad as dd
+import rlkit.torch.pytorch_util as ptu
 
 if __name__ == "__main__":
 #     import matplotlib
 #     matplotlib.use('agg')
+
+    ptu.set_gpu_mode(True) 
 
     args_dict = dd.get_args()
     method_call = args_dict['method_call']
