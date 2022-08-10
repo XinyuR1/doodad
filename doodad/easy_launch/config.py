@@ -9,6 +9,10 @@ LOCAL_LOG_DIR = BASE_CODE_DIR + "/rlkit/data"
 OUTPUT_DIR_FOR_DOODAD_TARGET = BASE_CODE_DIR + "/rlkit/data"
 
 DIR_AND_MOUNT_POINT_MAPPINGS = [
+    dict(
+        local_dir='/home/ronnie/Documents/Github/rlkit',
+        mount_point='/root/playground/rlkit'
+    )
 ]
 
 """
