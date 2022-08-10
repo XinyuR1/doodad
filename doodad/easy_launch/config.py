@@ -1,7 +1,8 @@
 BASE_CODE_DIR = "/home/ronnie/Documents/Github"
 
 CODE_DIRS_TO_MOUNT = [
-    BASE_CODE_DIR + "/rlkit"
+    BASE_CODE_DIR + "/rlkit",
+    BASE_CODE_DIR + "/doodad"
 ]
 NON_CODE_DIRS_TO_MOUNT = [
 ]
@@ -12,6 +13,10 @@ DIR_AND_MOUNT_POINT_MAPPINGS = [
     dict(
         local_dir='/home/ronnie/Documents/Github/rlkit',
         mount_point='/root/playground/rlkit'
+    ),
+    dict(
+        local_dir='/home/ronnie/Documents/Github/doodad',
+        mount_point='/root/playground/doodad'
     )
 ]
 
