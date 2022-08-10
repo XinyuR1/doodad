@@ -1,4 +1,4 @@
-BASE_CODE_DIR = "/home/ronnie/Documents/Github"
+BASE_CODE_DIR = "/home/liuronni/Documents/Github"
 
 CODE_DIRS_TO_MOUNT = [
     BASE_CODE_DIR + "/rlkit",
@@ -11,11 +11,11 @@ OUTPUT_DIR_FOR_DOODAD_TARGET = BASE_CODE_DIR + "/rlkit/data"
 
 DIR_AND_MOUNT_POINT_MAPPINGS = [
     dict(
-        local_dir='/home/ronnie/Documents/Github/rlkit',
+        local_dir='/home/liuronni/Documents/Github/rlkit',
         mount_point='/root/playground/rlkit'
     ),
     dict(
-        local_dir='/home/ronnie/Documents/Github/doodad',
+        local_dir='/home/liuronni/Documents/Github/doodad',
         mount_point='/root/playground/doodad'
     )
 ]
