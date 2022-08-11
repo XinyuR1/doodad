@@ -1,8 +1,7 @@
 BASE_CODE_DIR = "/home/liuronni/Documents/Github"
 
 CODE_DIRS_TO_MOUNT = [
-    BASE_CODE_DIR + "/rlkit",
-    BASE_CODE_DIR + "/doodad"
+    BASE_CODE_DIR + "/rlkit"
 ]
 NON_CODE_DIRS_TO_MOUNT = [
 ]
@@ -10,14 +9,6 @@ LOCAL_LOG_DIR = BASE_CODE_DIR + "/rlkit/data"
 OUTPUT_DIR_FOR_DOODAD_TARGET = BASE_CODE_DIR + "/rlkit/data"
 
 DIR_AND_MOUNT_POINT_MAPPINGS = [
-    dict(
-        local_dir='/home/liuronni/Documents/Github/rlkit',
-        mount_point='/root/playground/rlkit'
-    ),
-    dict(
-        local_dir='/home/liuronni/Documents/Github/doodad',
-        mount_point='/root/playground/doodad'
-    )
 ]
 
 """
@@ -26,11 +17,11 @@ AWS Settings
 AWS_S3_PATH = 'TODO'
 
 # The docker image is looked up on dockerhub.com.
-DOODAD_DOCKER_IMAGE = 'rlkit:latest'
+DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:latest'
 INSTANCE_TYPE = 'c4.2xlarge'
 SPOT_PRICE = 0.3
 
-GPU_DOODAD_DOCKER_IMAGE = 'rlkit:latest'
+GPU_DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:latest'
 GPU_INSTANCE_TYPE = 'g3.4xlarge'
 GPU_SPOT_PRICE = 0.5
 REGION_TO_GPU_AWS_IMAGE_ID = {
