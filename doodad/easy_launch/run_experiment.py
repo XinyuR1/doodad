@@ -1,18 +1,43 @@
 import doodad as dd
+from comet_ml import Experiment
+from rlkit.core import logger
 import rlkit.torch.pytorch_util as ptu
 
 if __name__ == "__main__":
 #     import matplotlib
 #     matplotlib.use('agg')
 
+    # If using a GPU
     ptu.set_gpu_mode(True) 
 
+    # Comet_ML experiment for logging
+    #"""
+    exp = Experiment(
+        api_key = "CZJ6oI3PcAWndEc7BbDLnggSx",
+        project_name = "DQN-Breakout-v0",
+        workspace = "xinyur1",
+        auto_metric_logging = True,
+        auto_param_logging = True,
+        log_graph = True,
+        auto_metric_step_rate = True,
+        parse_args = True,
+        auto_histogram_weight_logging = True,
+        auto_histogram_activation_logging = True,
+        auto_histogram_epoch_rate = True
+        )
+    logger.comet_log = exp
+    #"""
+    
+    
     args_dict = dd.get_args()
     method_call = args_dict['method_call']
     doodad_config = args_dict['doodad_config']
     variant = args_dict['variant']
     output_dir = args_dict['output_dir']
     run_mode = args_dict.get('mode', None)
+
+    exp.log_parameters(variant)
+
     if run_mode and run_mode in ['slurm_singularity', 'sss', 'htp']:
         import os
         doodad_config.extra_launch_info['slurm-job-id'] = os.environ.get(
@@ -51,3 +76,4 @@ if __name__ == "__main__":
         )
 
     method_call(doodad_config, variant)
+    exp.end()
