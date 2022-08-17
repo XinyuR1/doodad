@@ -1,3 +1,28 @@
+# DOODAD
+## Linked repositories for IFT 3150
+- Doodad Library (fork version): https://github.com/XinyuR1/doodad
+- RLKIT Library (fork version): https://github.com/XinyuR1/rlkit
+- SMiRL-Code: https://github.com/Neo-X/SMiRL_Code
+- Docker Images: https://hub.docker.com/repository/docker/xinyur1/rlkit
+
+## Work in Progress
+- Running an experiment with ssh mode in``Breakout-v0`` or `Space-Invaders`.
+
+## Changes in the code
+
+### August 14th, 2022: Add comet_ml
+- Modify [run_experiment.py](doodad/easy_launch/run_experiment.py).
+  - Add the information related to comet_ml experiment since the Atari experiment will use this python file when the mode is either local, local_docker or ssh.
+
+### August 10th, 2022: Fix the GPU issue (GPU of the lab computer can't recognize the experiment).
+- Modify [run_experiment.py](doodad/easy_launch/run_experiment.py).
+  - Add the line ``ptu.set_gpu_mode(True)`` when using GPU by importing the function from `rlkit`.
+
+### August 1st, 2022: Add personal configurations for Atari experiments
+- Modify [config.py](doodad/easy_launch/config.py) for personal configurations (to the Ubuntu virtual machine).
+- Use the following docker images for Atari experiments that are available at Dockerhub: ``xinyur1/rlkit:version-cpu`` or `xinyur1/rlkit:version-gpu`
+  
+*****************************
 # doodad
 
 
