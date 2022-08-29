@@ -1,10 +1,14 @@
+# Base Directory
 BASE_CODE_DIR = "/home/liuronni/Documents/Github"
 
+# Mounting Directories for doodad
 CODE_DIRS_TO_MOUNT = [
     BASE_CODE_DIR + "/rlkit"
 ]
 NON_CODE_DIRS_TO_MOUNT = [
 ]
+
+# Log Directories for doodad (locally)
 LOCAL_LOG_DIR = BASE_CODE_DIR + "/rlkit/data"
 OUTPUT_DIR_FOR_DOODAD_TARGET = BASE_CODE_DIR + "/rlkit/data"
 
@@ -53,6 +57,8 @@ SSH_HOSTS = dict(
 )
 SSH_DEFAULT_HOST = 'blue'
 SSH_PRIVATE_KEY = '~/.ssh/id_rsa'
+
+# Outputs on the lab computer (log directories)
 SSH_LOG_DIR = '~/shared/res'
 SSH_TMP_DIR = '~/shared/tmp'
 

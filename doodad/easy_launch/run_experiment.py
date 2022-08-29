@@ -14,7 +14,7 @@ if __name__ == "__main__":
     #"""
     exp = Experiment(
         api_key = "CZJ6oI3PcAWndEc7BbDLnggSx",
-        project_name = "DQN-Breakout-v0",
+        project_name = "IFT-3150",
         workspace = "xinyur1",
         auto_metric_logging = True,
         auto_param_logging = True,

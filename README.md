@@ -5,22 +5,67 @@
 - SMiRL-Code: https://github.com/Neo-X/SMiRL_Code
 - Docker Images: https://hub.docker.com/repository/docker/xinyur1/rlkit
 
-## Work in Progress
-- Running an experiment with ssh mode in``Breakout-v0`` or `Space-Invaders`.
+## My Personal Configurations for this Project
+```python
+# For Code Directory
+BASE_CODE_DIR = "/home/liuronni/Documents/Github"
 
-## Changes in the code
+# Mounting Directories for doodad
+CODE_DIRS_TO_MOUNT = [
+    BASE_CODE_DIR + "/rlkit"
+]
+NON_CODE_DIRS_TO_MOUNT = [
+]
 
-### August 14th, 2022: Add comet_ml
-- Modify [run_experiment.py](doodad/easy_launch/run_experiment.py).
-  - Add the information related to comet_ml experiment since the Atari experiment will use this python file when the mode is either local, local_docker or ssh.
+# Log Directories for doodad
+LOCAL_LOG_DIR = BASE_CODE_DIR + "/rlkit/data"
+OUTPUT_DIR_FOR_DOODAD_TARGET = BASE_CODE_DIR + "/rlkit/data"
 
-### August 10th, 2022: Fix the GPU issue (GPU of the lab computer can't recognize the experiment).
-- Modify [run_experiment.py](doodad/easy_launch/run_experiment.py).
-  - Add the line ``ptu.set_gpu_mode(True)`` when using GPU by importing the function from `rlkit`.
+# For Docker Images
+DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:version-cpu'
+GPU_DOODAD_DOCKER_IMAGE = 'xinyur1/rlkit:version-gpu3'
 
-### August 1st, 2022: Add personal configurations for Atari experiments
+# Host SSH
+SSH_HOSTS = dict(
+    arcade=dict(
+        username='liuronni',
+        hostname='arcade'
+    ),
+    blue=dict(
+        username='ronnie',
+        hostname='blue'
+    ),
+    green=dict(
+        username='ronnie',
+        hostname='green'
+    )
+)
+
+# Outputs on the lab computer (log directories)
+SSH_LOG_DIR = '~/shared/res'
+SSH_TMP_DIR = '~/shared/tmp'
+```
+
+
+
+## List of Changes for this Project
+This project uses this library in order to run different experiments. Here are the list of changes that I've made compared to the montrealrobotic's version of ``doodad``:
+
+### [easy_launch.py](doodad/easy_launch)
+#### [config.py](doodad/easy_launch/config.py)
+- We will use these configurations for the Atari experiments from RLKIT.
 - Modify [config.py](doodad/easy_launch/config.py) for personal configurations (to the Ubuntu virtual machine).
-- Use the following docker images for Atari experiments that are available at Dockerhub: ``xinyur1/rlkit:version-cpu`` or `xinyur1/rlkit:version-gpu`
+- Use the following docker images for Atari experiments that are available at Dockerhub: ``xinyur1/rlkit:version-cpu`` or `xinyur1/rlkit:version-gpu3`
+
+#### [run_experiment.py](doodad/easy_launch/run_experiment.py)
+- Add the line ``ptu.set_gpu_mode(True)`` when using GPU by importing the function from `rlkit`.
+- Add the information related to comet_ml experiment since the Atari experiment will use this python file when the mode is either local, local_docker or ssh.
+
+
+
+### [mode.py](doodad/mode.py)
+- Add `sudo` keyword, so it doesn't refuse access while using a Docker container.
+- Add `--pid = host` when running a Docker Container with GPU.
   
 *****************************
 # doodad
