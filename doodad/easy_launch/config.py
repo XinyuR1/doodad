@@ -1,4 +1,7 @@
 # Base Directory
+"""
+TODO: change BASE_CODE_DIR
+"""
 BASE_CODE_DIR = "/home/liuronni/Documents/Github"
 
 # Mounting Directories for doodad
@@ -9,6 +12,9 @@ NON_CODE_DIRS_TO_MOUNT = [
 ]
 
 # Log Directories for doodad (locally)
+"""
+TODO: change the directories where you want to store your data
+"""
 LOCAL_LOG_DIR = BASE_CODE_DIR + "/rlkit/data"
 OUTPUT_DIR_FOR_DOODAD_TARGET = BASE_CODE_DIR + "/rlkit/data"
 
@@ -40,6 +46,10 @@ AWS_FILE_TYPES_TO_SAVE = (
 
 """
 SSH Settings
+"""
+"""
+TODO: change the usernames and the hostnames depending on which
+servers you are using.
 """
 SSH_HOSTS = dict(
     arcade=dict(
